@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>University News — Your Campus Headlines</title>
+  <meta name="description" content="Latest news, events and announcements from the university campus." />
+  <meta name="author" content="University Communications" />
+
+  <!-- Basic light CSS (replace with your preferred framework or compile Tailwind) -->
+  <style>
+    :root{
+      --accent:#0b5fff; --muted:#6b7280; --bg:#f7f8fb; --card:#ffffff; --radius:12px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#0f172a}
+    .container{max-width:var(--max-width); margin:28px auto; padding:0 18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#6a8cff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin:0 8px;color:var(--muted);text-decoration:none}
+    nav a:hover{color:var(--accent)}
+
+    .search{display:flex;align-items:center;gap:8px}
+    .search input{padding:8px 12px;border-radius:10px;border:1px solid #e6e9ef;min-width:220px}
+
+    .hero{margin-top:22px;background:linear-gradient(180deg,white,#fbfdff);padding:22px;border-radius:var(--radius);display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center}
+    .hero-main h1{margin:0 0 8px;font-size:22px}
+    .hero-main p{margin:0;color:var(--muted)}
+
+    /* Grid for news list */
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
+    .feed{display:grid;gap:14px}
+    .card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04);display:flex;gap:12px}
+    .card img{width:170px;height:110px;object-fit:cover;border-radius:8px}
+    .meta{font-size:13px;color:var(--muted)}
+    .title{font-weight:600;margin:0 0 6px}
+    .excerpt{margin:0;color:#334155}
+
+    /* Sidebar */
+    aside .widget{background:var(--card);padding:12px;border-radius:10px;margin-bottom:12px}
+    .tag{display:inline-block;padding:6px 10px;margin:6px 6px 0 0;border-radius:999px;background:#f1f5f9;color:#0f172a;font-size:13px}
+
+    /* Pagination */
+    .pagination{display:flex;gap:8px;justify-content:center;margin-top:18px}
+    .btn{border-radius:8px;padding:8px 12px;border:1px solid #e6e9ef;background:white;cursor:pointer}
+    .btn.primary{background:var(--accent);color:white;border:none}
+
+    footer{margin:28px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .card img{width:120px;height:90px}
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">U</div>
+        <div>
+          <div style="font-weight:700">University News</div>
+          <div style="font-size:13px;color:var(--muted)">Campus updates & announcements</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">News</a>
+        <a href="#">Events</a>
+        <a href="#">Departments</a>
+        <a href="#">About</a>
+      </nav>
+
+      <div class="search" role="search">
+        <input id="q" placeholder="Search articles, people, events..." aria-label="Search articles" />
+        <button class="btn">Search</button>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-main">
+        <h1 id="hero-heading">Campus safety program expands to new dorms</h1>
+        <p class="meta">By Communications • Sep 10, 2025 • <a href="#">Read more</a></p>
+        <p style="margin-top:12px">University rolls out new safety patrols and emergency call stations across three residential halls. This programme follows student feedback from last semester.</p>
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <button class="btn primary">Read full story</button>
+          <button class="btn">Subscribe</button>
+        </div>
+      </div>
+
+      <aside>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="widget">
+            <strong>Upcoming events</strong>
+            <ul style="padding-left:16px;margin:8px 0 0 0;color:var(--muted)">
+              <li>Orientation — Sep 20</li>
+              <li>Research Fair — Oct 3</li>
+              <li>Alumni Meetup — Nov 1</li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <strong>Categories</strong>
+            <div style="margin-top:8px">
+              <span class="tag">Announcements</span>
+              <span class="tag">Research</span>
+              <span class="tag">Student Life</span>
+              <span class="tag">Athletics</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main class="grid" aria-live="polite">
+      <section class="feed" aria-label="News feed">
+        <!-- Example article card (duplicate this block for more items) -->
+        <article class="card" aria-labelledby="a1">
+          <img src="https://source.unsplash.com/featured/?campus,university" alt="Campus photo" />
+          <div>
+            <div class="meta">Research • Sep 8, 2025</div>
+            <h3 id="a1" class="title">New AI lab opens with cross-disciplinary grants</h3>
+            <p class="excerpt">Faculty and students will have access to new compute clusters and seed funding for interdisciplinary projects that connect AI with sustainability.</p>
+            <p style="margin-top:8px"><a href="#">Read article →</a></p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="a2">
+          <img src="https://source.unsplash.com/featured/?lecture,classroom" alt="Lecture photo" />
+          <div>
+            <div class="meta">Student Life • Sep 6, 2025</div>
+            <h3 id="a2" class="title">Student groups secure funding for community garden</h3>
+            <p class="excerpt">A collaborative project between student volunteers and the agriculture department aims to build green spaces for learning and food security.</p>
+            <p style="margin-top:8px"><a href="#">Read article →</a></p>
+          </div>
+        </article>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="btn">« Prev</button>
+          <button class="btn">1</button>
+          <button class="btn">2</button>
+          <button class="btn primary">Next »</button>
+        </div>
+
+      </section>
+
+      <aside aria-label="Sidebar">
+        <div class="widget">
+          <strong>Editor’s picks</strong>
+          <ol style="margin-top:8px;padding-left:18px;color:var(--muted)">
+            <li><a href="#">Science faculty awarded $2M grant</a></li>
+            <li><a href="#">How to apply for research assistant roles</a></li>
+            <li><a href="#">Alumni spotlight: Dr. S. Rahman</a></li>
+          </ol>
+        </div>
+
+        <div class="widget">
+          <strong>Subscribe</strong>
+          <p style="margin:8px 0;color:var(--muted)">Get weekly email updates from University News.</p>
+          <input placeholder="Your email" style="padding:8px;border-radius:8px;border:1px solid #e6e9ef;width:100%" />
+          <div style="margin-top:8px"><button class="btn primary" style="width:100%">Subscribe</button></div>
+        </div>
+
+        <div class="widget">
+          <strong>Contact</strong>
+          <p style="margin:8px 0;color:var(--muted)">communications@university.edu<br/>Phone: +1 (555) 555-5555</p>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      © 2025 University Name • <a href="#">Privacy</a> • <a href="#">Accessibility</a>
+    </footer>
+  </div>
+
+  <!-- Minimal JS for demonstration only -->
+  <script>
+    // Example: simple search filter by title/excerpt on the client (works with this static template)
+    document.querySelector('.search button').addEventListener('click', function(){
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const articles = document.querySelectorAll('.feed .card');
+      if(!q){articles.forEach(a=>a.style.display='flex'); return}
+      articles.forEach(a=>{
+        const text = a.innerText.toLowerCase();
+        a.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
